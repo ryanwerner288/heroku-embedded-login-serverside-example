@@ -54,6 +54,7 @@ public class ServerSideCallbacks extends HttpServlet{
         if (startURL != null) {
             startURL = URLDecoder.decode(startURL, "UTF-8");
         }
+	    System.out.println("rwern startUrl: " + startURL);	
                 
         String tokenResponse = null;
         String communityUrl = null;
