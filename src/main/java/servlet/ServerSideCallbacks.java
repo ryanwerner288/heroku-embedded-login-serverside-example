@@ -47,7 +47,7 @@ public class ServerSideCallbacks extends HttpServlet{
 	    
 	    System.out.println("rwern code: " + code);	
 	    
-        /*if (code != null) {
+        if (code != null) {
             code = URLDecoder.decode(code, "UTF-8");
         }
         String startURL = request.getParameter("state");
@@ -122,7 +122,7 @@ public class ServerSideCallbacks extends HttpServlet{
                 "<script src=\""+ communityUrl +"/servlet/servlet.loginwidgetcontroller?type=javascript_widget\"" +
                 " async defer></script>\n" +
                 "</head><body></body></html>";
-        out.write(outputStr);*/
+        out.write(outputStr);
     }
 
 }
