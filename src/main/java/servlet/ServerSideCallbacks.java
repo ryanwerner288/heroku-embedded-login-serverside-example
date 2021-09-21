@@ -44,6 +44,9 @@ public class ServerSideCallbacks extends HttpServlet{
     		//System.setProperty("javax.net.ssl.trustStore",".jdk-overlay/jre/lib/security/cacerts");
     		//System.setProperty("javax.net.ssl.trustStorePassword", System.getenv("CACERTS_PASSWORD"));
         String code = request.getParameter("code");
+	    
+	    System.out.println("rwern code: " + code);	
+	    
         if (code != null) {
             code = URLDecoder.decode(code, "UTF-8");
         }
