@@ -154,18 +154,6 @@
 		targetDiv.innerHTML = '';
 		targetDiv.appendChild(iddiv);	
 		
-		var aero = document.getElementById("aero_link");
-		aero.href = "/datasheets/AeroPress-Instr-English-Rev.-D2.pdf";
-		aero.innerHTML = 'Datasheet';
-
-		var reactor = document.getElementById("reactor_link");
-		reactor.href = "/datasheets/Reactor_StovInst_EURO_EN.pdf";
-		reactor.innerHTML = 'Datasheet';
-
-		var chemex = document.getElementById("chemex_link");
-		chemex.href = "/datasheets/2014_ChemexBrewGuide.pdf";
-		chemex.innerHTML = 'Datasheet';
-		
 	}
 	
 	
