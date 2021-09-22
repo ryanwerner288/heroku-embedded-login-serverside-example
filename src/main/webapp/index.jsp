@@ -28,6 +28,8 @@
   
   <body>
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
+	  <br/><br/>
+	  <div onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();">logout</div>
 </body>
 	
 	<script>
@@ -79,8 +81,7 @@
 		community.setAttribute("style", "float:left");
 		content.appendChild(community);
 		var logout = document.createElement('a'); 
-	 	//logout.href = "javascript:SFIDWidget.logout();SFIDWidget.cancel();";
-		logout.href = "javascript:SFIDWidget.logout();";
+	 	logout.href = "javascript:SFIDWidget.logout();SFIDWidget.cancel();";
 		logout.innerHTML = "logout";
 		logout.setAttribute("style", "float:right");
 		content.appendChild(logout);	
