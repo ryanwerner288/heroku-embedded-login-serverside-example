@@ -79,7 +79,8 @@
 		community.setAttribute("style", "float:left");
 		content.appendChild(community);
 		var logout = document.createElement('a'); 
-	 	logout.href = "javascript:SFIDWidget.logout();SFIDWidget.cancel();";
+	 	//logout.href = "javascript:SFIDWidget.logout();SFIDWidget.cancel();";
+		logout.href = "javascript:SFIDWidget.logout();";
 		logout.innerHTML = "logout";
 		logout.setAttribute("style", "float:right");
 		content.appendChild(logout);	
