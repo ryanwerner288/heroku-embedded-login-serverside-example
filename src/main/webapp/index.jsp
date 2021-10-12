@@ -34,11 +34,12 @@
 	
 	<script>
 		
-		//var orig_Mybasefunction = window.Mybasefunction
-		var orig = window.SFIDWidget.authenticate;
-		window.SFIDWidget.authenticate = function(){
-		    console.log('hello');
-		}
+	document.getElementById('sfid-username').addEventListener('change', doThing);
+
+/* function */
+function doThing(){
+   alert('hello');
+}
 
 	function onLogin(identity) {
 		
