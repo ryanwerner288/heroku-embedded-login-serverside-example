@@ -23,11 +23,7 @@
     <meta name="salesforce-logout-handler" content="onLogout">
     <meta name="salesforce-mask-redirects" content="true">
 	<link href="https://<%= System.getenv("SALESFORCE_COMMUNITY_URL") %>/servlet/servlet.loginwidgetcontroller?type=css" rel="stylesheet" type="text/css" />
-    <script src="https://<%= System.getenv("SALESFORCE_COMMUNITY_URL") %>/servlet/servlet.loginwidgetcontroller?type=javascript_widget&min=false" async defer>
-	  
-	    console.log('hello');
-	    alert('hello');
-	  </script>
+    <script src="https://<%= System.getenv("SALESFORCE_COMMUNITY_URL") %>/servlet/servlet.loginwidgetcontroller?type=javascript_widget&min=false" async defer></script>
 	  
 	  
   </head>
@@ -36,16 +32,12 @@
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
 	  <br/><br/>
 	  <div id="cancel-logout" onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();">logout</div>
+	  <div id="cancel-logout" onclick="javascript:SFIDWidget.authenticate();">logout</div>
 </body>
 	
 	<script>
 		
-	document.getElementById('sign-in-link').addEventListener('click', doThing);
-
-/* function */
-function doThing(){
-   //alert('hello');
-}
+	
 
 	function onLogin(identity) {
 		
