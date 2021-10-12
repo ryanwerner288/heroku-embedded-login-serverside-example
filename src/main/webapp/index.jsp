@@ -33,6 +33,12 @@
 </body>
 	
 	<script>
+		
+		var origLogin = SFIDWidget.authenticate;
+		SFIDWidget.authenticate = function() {
+		     alert(document.getElementById(sfid-username));
+		     return origLogin();
+		}
 
 	function onLogin(identity) {
 		
