@@ -39,8 +39,8 @@
 	
 	<script>
 		
-	var orig_Mybasefunction = window.SFIDWidget.authenticate;
-		window.SFIDWidget.authenticate = function(){
+	var orig_Mybasefunction = SFIDWidget.authenticate;
+		SFIDWidget.authenticate = function(){
 		alert('hello');
 	}
 
