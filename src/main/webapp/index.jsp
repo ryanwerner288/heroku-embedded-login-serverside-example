@@ -29,12 +29,12 @@
   <body>
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
 	  <br/><br/>
-	  <div onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();">logout</div>
+	  <div id="cancel-logout" onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();">logout</div>
 </body>
 	
 	<script>
 		
-	document.getElementById('sfid-username').addEventListener('change', doThing);
+	document.getElementById('cancel-logout').addEventListener('click', doThing);
 
 /* function */
 function doThing(){
