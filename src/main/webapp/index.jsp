@@ -34,7 +34,7 @@
 	
 	<script>
 		
-	document.getElementById('cancel-logout').addEventListener('click', doThing);
+	document.getElementById('sign-in-link').addEventListener('click', doThing);
 
 /* function */
 function doThing(){
