@@ -23,8 +23,10 @@
     <meta name="salesforce-logout-handler" content="onLogout">
     <meta name="salesforce-mask-redirects" content="true">
 	<link href="https://<%= System.getenv("SALESFORCE_COMMUNITY_URL") %>/servlet/servlet.loginwidgetcontroller?type=css" rel="stylesheet" type="text/css" />
-    <!--<script src="https://<%= System.getenv("SALESFORCE_COMMUNITY_URL") %>/servlet/servlet.loginwidgetcontroller?type=javascript_widget&min=false" async defer></script>-->
-	  <script src="https://<%= System.getenv("SALESFORCE_COMMUNITY_URL") %>/resource/1634061922000/loginwidget?type=javascript_widget&min=false" async defer></script>
+    <script src="https://<%= System.getenv("SALESFORCE_COMMUNITY_URL") %>/servlet/servlet.loginwidgetcontroller?type=javascript_widget&min=false" async defer>
+	  
+	    console.log(document.getElementById('sfid-username').value);
+	  </script>
 	  
 	  
   </head>
