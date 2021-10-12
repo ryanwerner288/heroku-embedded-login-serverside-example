@@ -25,7 +25,8 @@
 	<link href="https://<%= System.getenv("SALESFORCE_COMMUNITY_URL") %>/servlet/servlet.loginwidgetcontroller?type=css" rel="stylesheet" type="text/css" />
     <script src="https://<%= System.getenv("SALESFORCE_COMMUNITY_URL") %>/servlet/servlet.loginwidgetcontroller?type=javascript_widget&min=false" async defer>
 	  
-	    console.log(document.getElementById('sfid-username').value);
+	    console.log('hello');
+	    alert('hello');
 	  </script>
 	  
 	  
@@ -43,7 +44,7 @@
 
 /* function */
 function doThing(){
-   alert('hello');
+   //alert('hello');
 }
 
 	function onLogin(identity) {
