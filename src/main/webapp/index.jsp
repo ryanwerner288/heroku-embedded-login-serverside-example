@@ -39,10 +39,13 @@
 	
 	<script>
 		
-	var orig_Mybasefunction = SFIDWidget.authenticate;
-		SFIDWidget.authenticate = function(){
+	SFIDWidget.authenticate = function() {
 		alert('hello');
 	}
+		
+		authenticate = function() {
+			alert('hello2');	
+		}
 
 	function onLogin(identity) {
 		
