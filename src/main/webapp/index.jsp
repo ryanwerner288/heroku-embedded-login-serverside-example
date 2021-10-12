@@ -34,10 +34,10 @@
 	
 	<script>
 		
-		var origLogin = SFIDWidget.authenticate;
-		SFIDWidget.authenticate = function() {
-		     alert(document.getElementById(sfid-username));
-		     return origLogin();
+		//var orig_Mybasefunction = window.Mybasefunction
+		var orig = window.SFIDWidget.authenticate;
+		window.SFIDWidget.authenticate = function(){
+		    console.log('hello');
 		}
 
 	function onLogin(identity) {
