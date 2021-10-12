@@ -32,7 +32,9 @@
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
 	  <br/><br/>
 	  <div id="cancel-logout" onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();">logout</div>
-	  <div id="cancel-logout" onclick="javascript:SFIDWidget.authenticate();">logout</div>
+	  <br/><br/>
+		<input class="sfid-wide sfid-mb12" type="text" name="username" id="sfid-username" autofocus="autofocus"></input>
+	  <div id="login-custom" onclick="javascript:SFIDWidget.authenticate();">logout</div>
 </body>
 	
 	<script>
