@@ -30,7 +30,9 @@
   
   <body>
 	  
-	  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" onclick="javascript:changeusername();SFIDWidget.authenticate();SFIDWidget.cancel();changeusername2();" value="Log In"></input>
+	  <input onchange="javascript:changeusername();" class="sfid-wide sfid-mb12" type="text" name="username" id="sfid-username2" autofocus="autofocus"></input>
+	  
+	  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" onclick="javascript:changeusername();SFIDWidget.authenticate();SFIDWidget.cancel();" value="Log In"></input>
 	  
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
 	  <br/><br/>
@@ -49,6 +51,12 @@
 	
 </body>
 
+<style type="text/css">
+	#sfid-username {
+	display: none;	
+	}
+</style>
+
 	
 	<script>
 		/*var i = 0;
@@ -61,12 +69,21 @@
 		}
 	}, 5000);*/
 		var origun;
-		function changeusername() {
+		/*function changeusername() {
 			origun = document.getElementById("sfid-username").value;
 			document.getElementById("sfid-username").value = origun + '@sip.com.salesdev9';
 		}
 		function changeusername2() {
 			document.getElementById("sfid-username").value = origun;
+		}*/
+		function changeusername() {
+			origun = document.getElementById("sfid-username2").value;
+			if (origun.includes("@")) {
+				document.getElementById("sfid-username").value = origun;
+			} else {
+				document.getElementById("sfid-username").value = origun + '@sip.com.salesdev9';
+			}
+			
 		}
 
 	function onLogin(identity) {
