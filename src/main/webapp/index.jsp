@@ -38,11 +38,11 @@
 	  <br/><br/>
 	<form action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp" method="POST" target="my_iframe">
 		<input type="hidden" name="sid"
-      value="00D22000000DSMD!ARcAQF2WRWexG8YKV.F6BdDzTMj9U4fQGrpG1tWCyOjcFGMSyM4aPF23UnZnw.tLEOg1fMhu65YwxjlhzmKYWqE5iW91y2o4" />
+      value="00D22000000DSMD!ARcAQL.Zd1xo463ZhS4msM.UXVkdXH2oaKB7tvKOpFIbkQFAEN6iH.9T6nWFjrSiXbhhjf0T58ScfmPH2jDd0mj4c38pFTX4" />
 		<input type="submit" value="Do Stuff!">
 	</form>
 	<!-- when the form is submitted, the server response will appear in this iframe -->
-	<iframe name="my_iframe" src=""></iframe>
+	<iframe name="my_iframe" style="width:100%;height:800px;" src=""></iframe>
 	
 	
 </body>
