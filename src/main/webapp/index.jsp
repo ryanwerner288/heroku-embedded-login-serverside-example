@@ -48,6 +48,11 @@
 	
 	
 </body>
+<style type="text/css">
+	#sfid-username {
+	display: none;	
+	}
+</style>
 	
 	<script>
 		
