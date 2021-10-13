@@ -95,7 +95,11 @@
 	 	img.src = identity.photos.thumbnail; 
 		img.className = "sfid-avatar";	
 		var username = document.createElement('span'); 
-		username.innerHTML = identity.username;
+		if (identity.username.includes("@sip.com.salesdev9")) {
+			username.innerHTML = identity.username.substr(0, identity.username.indexOf('@')); 
+		} else {
+			username.innerHTML = identity.username;
+		}
 		username.className = "sfid-avatar-name";	
 		var iddiv = document.createElement('div'); 
 	 	iddiv.id = "sfid-identity";		
