@@ -48,27 +48,15 @@
 	
 	
 </body>
-<style type="text/css">
-	#sfid-username {
-	display: none;	
-	}
-</style>
+
 	
 	<script>
 		
-	window.onload = (event) => {
+	setInterval(function(){ 
 		var myobj = document.getElementById("sfid-username");
 		myobj.remove();
-		
-	};
-		
-	SFIDWidget.authenticate = function() {
-		alert('hello');
-	}
-		
-		authenticate = function() {
-			alert('hello2');	
-		}
+		alert("Hello"); 
+	}, 10000);
 
 	function onLogin(identity) {
 		
