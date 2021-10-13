@@ -30,7 +30,7 @@
   
   <body>
 	  
-	  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();" value="Log In"></input>
+	  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" onclick="javascript:SFIDWidget.authenticate();SFIDWidget.cancel();" value="Log In"></input>
 	  
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
 	  <br/><br/>
@@ -52,12 +52,12 @@
 	
 	<script>
 		
-	setInterval(function(){ 
+	/*setInterval(function(){ 
 		var myobj = document.getElementById("sfid-username");
 		
 		alert(myobj.value); 
 		myobj.remove();
-	}, 5000);
+	}, 5000);*/
 
 	function onLogin(identity) {
 		
