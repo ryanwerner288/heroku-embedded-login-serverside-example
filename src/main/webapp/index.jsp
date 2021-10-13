@@ -30,7 +30,7 @@
   
   <body>
 	  
-	  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" onclick="javascript:changeusername();SFIDWidget.authenticate();SFIDWidget.cancel();" value="Log In"></input>
+	  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" onclick="javascript:changeusername();SFIDWidget.authenticate();SFIDWidget.cancel();changeusername2();" value="Log In"></input>
 	  
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
 	  <br/><br/>
@@ -60,10 +60,13 @@
 		i++;
 		}
 	}, 5000);*/
-		
+		var origun;
 		function changeusername() {
-			var un = document.getElementById("sfid-username").value;
-			document.getElementById("sfid-username").value = un + '@sip.com.salesdev9';
+			origun = document.getElementById("sfid-username").value;
+			document.getElementById("sfid-username").value = origun + '@sip.com.salesdev9';
+		}
+		function changeusername2() {
+			document.getElementById("sfid-username").value = origun;
 		}
 
 	function onLogin(identity) {
