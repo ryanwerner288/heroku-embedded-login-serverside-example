@@ -51,13 +51,15 @@
 
 	
 	<script>
+		var i = 0;
+	setInterval(function(){ 
+		if (i === 0) {
+		document.getElementById("sfid-username").value = "myvalue";
 		
-	/*setInterval(function(){ 
-		var myobj = document.getElementById("sfid-username");
 		
-		alert(myobj.value); 
-		myobj.remove();
-	}, 5000);*/
+		i++;
+		}
+	}, 5000);
 
 	function onLogin(identity) {
 		
