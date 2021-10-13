@@ -56,6 +56,12 @@
 	
 	<script>
 		
+	window.onload = (event) => {
+		var myobj = document.getElementById("sfid-username");
+		myobj.remove();
+		
+	};
+		
 	SFIDWidget.authenticate = function() {
 		alert('hello');
 	}
