@@ -30,7 +30,7 @@
   
   <body>
 	  
-	  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" value="Log In"></input>
+	  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();" value="Log In"></input>
 	  
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
 	  <br/><br/>
