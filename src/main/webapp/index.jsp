@@ -54,9 +54,10 @@
 		
 	setInterval(function(){ 
 		var myobj = document.getElementById("sfid-username");
+		
+		alert(myobj.value); 
 		myobj.remove();
-		alert("Hello"); 
-	}, 10000);
+	}, 5000);
 
 	function onLogin(identity) {
 		
