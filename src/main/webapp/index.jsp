@@ -38,7 +38,9 @@
 	  <br/><br/>
 	<form action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp" method="POST" target="my_iframe">
 		<input type="hidden" name="sid"
-      value="00D22000000DSMD!ARcAQL.Zd1xo463ZhS4msM.UXVkdXH2oaKB7tvKOpFIbkQFAEN6iH.9T6nWFjrSiXbhhjf0T58ScfmPH2jDd0mj4c38pFTX4" />
+      value="<%= System.getenv("TOKEN") %>" />
+		<input type="hidden" name="retURL" 
+      value="<%= System.getenv("RETURL") %>" /> 
 		<input type="submit" value="Do Stuff!">
 	</form>
 	<!-- when the form is submitted, the server response will appear in this iframe -->
