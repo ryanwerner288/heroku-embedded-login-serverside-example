@@ -59,71 +59,72 @@ public class ServerSideCallbacks extends HttpServlet{
         String tokenResponse = null;
         String communityUrl = null;
         HttpClient httpclient = new HttpClient();
-        
-        try {
-            // community_url parameter passed from redirect uri.
-            communityUrl = request.getParameter("sfdc_community_url");
-            // Token endpoint : communityUrl + "/services/oauth2/token";
-            PostMethod post = new PostMethod(communityUrl+"/services/oauth2/token");
-            post.addParameter("code",code);
-            post.addParameter("grant_type","authorization_code");
-            // Consumer key of the Connected App.
-            post.addParameter("client_id", CLIENT_ID);
-            // Consumer Secret of the Connected App.
-            post.addParameter("client_secret",CLIENT_SECRET);
-            
-            // Callback URL of the Connected App.
-            post.addParameter("redirect_uri", "https://" +  System.getenv("SALESFORCE_HEROKUAPP_URL") + "/_callback");
-            
-    			System.out.println("Attempting to POST to token endpoint: " + post.getPath());	
-            httpclient.executeMethod(post);
-            tokenResponse = post.getResponseBodyAsString();
-            post.releaseConnection();
- 
-            System.err.println("tokenResponse: " + tokenResponse);
-        } catch (Exception e) {
-        		throw new ServletException(e);
-        }
+        if (System.getenv("RUN_OAUTH") != null)) {
+		try {
+		    // community_url parameter passed from redirect uri.
+		    communityUrl = request.getParameter("sfdc_community_url");
+		    // Token endpoint : communityUrl + "/services/oauth2/token";
+		    PostMethod post = new PostMethod(communityUrl+"/services/oauth2/token");
+		    post.addParameter("code",code);
+		    post.addParameter("grant_type","authorization_code");
+		    // Consumer key of the Connected App.
+		    post.addParameter("client_id", CLIENT_ID);
+		    // Consumer Secret of the Connected App.
+		    post.addParameter("client_secret",CLIENT_SECRET);
 
-        JSONObject identityJSON = null;
-        try {
-        		System.out.println("Attempting to parse token response: " + tokenResponse);
-            JSONObject token = new JSONObject(tokenResponse);
-            String accessToken = token.getString("access_token");
-            String identity = token.getString("id");
-            httpclient = new HttpClient();
-            GetMethod get = new GetMethod(identity + "?version=latest");
-            get.setFollowRedirects(true);
-            get.addRequestHeader("Authorization", "Bearer " + accessToken);
-            httpclient.executeMethod(get);
-            String identityResponse = get.getResponseBodyAsString();
-            get.releaseConnection();
-            identityJSON = new JSONObject(identityResponse);
-            identityJSON.put("access_token", accessToken);
-        } catch (Exception e) {
-            throw new ServletException(e);
-        }
-        
+		    // Callback URL of the Connected App.
+		    post.addParameter("redirect_uri", "https://" +  System.getenv("SALESFORCE_HEROKUAPP_URL") + "/_callback");
 
-        response.setContentType("text/html; charset=utf-8");
-        PrintWriter out = response.getWriter();
+				System.out.println("Attempting to POST to token endpoint: " + post.getPath());	
+		    httpclient.executeMethod(post);
+		    tokenResponse = post.getResponseBodyAsString();
+		    post.releaseConnection();
 
-        // Mode passed from redirect-uri
-       //  Notice that we’re using base64 encoded
-        String outputStr =  "<html><head>\n" +
-                "<meta name=\"salesforce-community\" content=\""+ communityUrl +"\">\n" +
-//                "<meta name=\"salesforce-mode\" content=\""+ request.getParameter("mode") +"-callback\">\n" +
-				"<meta name=\"salesforce-mode\" content=\"" + System.getenv("SALESFORCE_MODE") + "-callback\">\n" +
-                "<meta name=\"salesforce-server-callback\" content=\"true\">\n" +
-                "<meta name=\"salesforce-server-response\" content='" + 
-                Base64.getEncoder().encodeToString(identityJSON.toString().getBytes(StandardCharsets.UTF_8))+"'>\n" +
-                "<meta name=\"salesforce-server-starturl\" content='" + startURL +"'>\n" +
-                "<meta name=\"salesforce-target\" content= \"#salesforce-login\">\n"+
-                "<meta name=\"salesforce-allowed-domains\" content=\"" + System.getenv("SALESFORCE_HEROKUAPP_URL") + "\">\n" +
-                "<script src=\""+ communityUrl +"/servlet/servlet.loginwidgetcontroller?type=javascript_widget\"" +
-                " async defer></script>\n" +
-                "</head><body></body></html>";
-        out.write(outputStr);
+		    System.err.println("tokenResponse: " + tokenResponse);
+		} catch (Exception e) {
+				throw new ServletException(e);
+		}
+
+		JSONObject identityJSON = null;
+		try {
+				System.out.println("Attempting to parse token response: " + tokenResponse);
+		    JSONObject token = new JSONObject(tokenResponse);
+		    String accessToken = token.getString("access_token");
+		    String identity = token.getString("id");
+		    httpclient = new HttpClient();
+		    GetMethod get = new GetMethod(identity + "?version=latest");
+		    get.setFollowRedirects(true);
+		    get.addRequestHeader("Authorization", "Bearer " + accessToken);
+		    httpclient.executeMethod(get);
+		    String identityResponse = get.getResponseBodyAsString();
+		    get.releaseConnection();
+		    identityJSON = new JSONObject(identityResponse);
+		    identityJSON.put("access_token", accessToken);
+		} catch (Exception e) {
+		    throw new ServletException(e);
+		}
+
+
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+
+		// Mode passed from redirect-uri
+	       //  Notice that we’re using base64 encoded
+		String outputStr =  "<html><head>\n" +
+			"<meta name=\"salesforce-community\" content=\""+ communityUrl +"\">\n" +
+	//                "<meta name=\"salesforce-mode\" content=\""+ request.getParameter("mode") +"-callback\">\n" +
+					"<meta name=\"salesforce-mode\" content=\"" + System.getenv("SALESFORCE_MODE") + "-callback\">\n" +
+			"<meta name=\"salesforce-server-callback\" content=\"true\">\n" +
+			"<meta name=\"salesforce-server-response\" content='" + 
+			Base64.getEncoder().encodeToString(identityJSON.toString().getBytes(StandardCharsets.UTF_8))+"'>\n" +
+			"<meta name=\"salesforce-server-starturl\" content='" + startURL +"'>\n" +
+			"<meta name=\"salesforce-target\" content= \"#salesforce-login\">\n"+
+			"<meta name=\"salesforce-allowed-domains\" content=\"" + System.getenv("SALESFORCE_HEROKUAPP_URL") + "\">\n" +
+			"<script src=\""+ communityUrl +"/servlet/servlet.loginwidgetcontroller?type=javascript_widget\"" +
+			" async defer></script>\n" +
+			"</head><body></body></html>";
+		out.write(outputStr);
+	}
     }
 
 }
