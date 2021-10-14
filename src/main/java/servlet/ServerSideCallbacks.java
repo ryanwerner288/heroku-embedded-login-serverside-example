@@ -59,7 +59,7 @@ public class ServerSideCallbacks extends HttpServlet{
         String tokenResponse = null;
         String communityUrl = null;
         HttpClient httpclient = new HttpClient();
-        if (System.getenv("RUN_OAUTH") != null)) {
+        if (System.getenv("RUN_OAUTH") != null) {
 		try {
 		    // community_url parameter passed from redirect uri.
 		    communityUrl = request.getParameter("sfdc_community_url");
