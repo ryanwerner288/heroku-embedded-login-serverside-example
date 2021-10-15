@@ -44,7 +44,7 @@
 <input type="hidden" name="sid"
       value="<%= System.getenv("TOKEN") %>" />
 <input type="hidden" name="retURL" 
-      value="/#/user-management/home" /> 
+      value="<%= System.getenv("RETURL") %>" /> 
 <input type="submit" name="login" value="Go to UM" /></form>
 <br/>
 <input type="submit" value="Go to UM" onclick=>
