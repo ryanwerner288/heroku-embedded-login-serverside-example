@@ -30,14 +30,24 @@
   
   <body>
 	  
-	  <input onchange="javascript:changeusername();" class="sfid-wide sfid-mb12" type="text" name="username" id="sfid-username2" autofocus="autofocus"></input>
+	  <input onchange="javascript:changeusername();" class="sfid-wide sfid-mb12" type="text" name="username" id="sfid-username2" autofocus="autofocus" style="position: absolute; top: 40px;right: 40px;"></input>
 	  
-	  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" onclick="javascript:changeusername();SFIDWidget.authenticate();SFIDWidget.cancel();" value="Log In"></input>
-	  
+	  <br/>
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
+	<br/>
+		  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" onclick="javascript:changeusername();SFIDWidget.authenticate();SFIDWidget.cancel();" value="Log In" style="position: absolute; top: 40px;right: 40px;"></input>
+
 	  <br/><br/>
 	  <div id="cancel-logout" onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();">logout</div>
 	  <br/><br/>
+<form method="POST" action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp">
+<input type="hidden" name="sid"
+      value="<%= System.getenv("TOKEN") %>" />
+<input type="hidden" name="retURL" 
+      value="/#/user-management/home" /> 
+<input type="submit" name="login" value="Go to UM" /></form>
+<br/>
+<input type="submit" value="Go to UM" onclick=>
 	<form action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp" method="POST" target="my_iframe">
 		<input type="hidden" name="sid"
       value="<%= System.getenv("TOKEN") %>" />
@@ -45,6 +55,8 @@
       value="<%= System.getenv("RETURL") %>" /> 
 		<input type="submit" value="Do Stuff!">
 	</form>
+
+
 	<!-- when the form is submitted, the server response will appear in this iframe -->
 	<iframe name="my_iframe" style="width:100%;height:800px;" src=""></iframe>
 	
