@@ -30,12 +30,12 @@
   
   <body>
 	  
-	  <input onchange="javascript:changeusername();" class="sfid-wide sfid-mb12" type="text" name="username" id="sfid-username2" autofocus="autofocus" style="position: absolute; top: 40px;right: 40px;"></input>
+	  <input onchange="javascript:changeusername();" class="sfid-wide sfid-mb12" type="text" name="username" id="sfid-username2" autofocus="autofocus" style="top: 40px;right: 40px;"></input>
 	  
 	  <br/>
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
 	<br/>
-		  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" onclick="javascript:changeusername();SFIDWidget.authenticate();SFIDWidget.cancel();" value="Log In" style="position: absolute; top: 40px;right: 40px;"></input>
+		  <input class="sfid-button sfid-wide sfid-mb16" type="submit" id="sfid-submit" onclick="javascript:changeusername();SFIDWidget.authenticate();SFIDWidget.cancel();" value="Log In" style="top: 40px;right: 40px;"></input>
 
 	  <br/><br/>
 	  <div id="cancel-logout" onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();">logout</div>
