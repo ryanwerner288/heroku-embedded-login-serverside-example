@@ -73,7 +73,7 @@ public class ServerSideCallbacks extends HttpServlet{
 		    post.addParameter("client_secret",CLIENT_SECRET);
 
 		    // Callback URL of the Connected App.
-		    post.addParameter("redirect_uri", "https://" +  System.getenv("SALESFORCE_HEROKUAPP_URL") + "/_callback");
+		    post.addParameter("redirect_uri", "" +  System.getenv("SALESFORCE_HEROKUAPP_URL") + "");
 
 				System.out.println("Attempting to POST to token endpoint: " + post.getPath());	
 		    httpclient.executeMethod(post);
@@ -119,7 +119,7 @@ public class ServerSideCallbacks extends HttpServlet{
 			Base64.getEncoder().encodeToString(identityJSON.toString().getBytes(StandardCharsets.UTF_8))+"'>\n" +
 			"<meta name=\"salesforce-server-starturl\" content='" + startURL +"'>\n" +
 			"<meta name=\"salesforce-target\" content= \"#salesforce-login\">\n"+
-			"<meta name=\"salesforce-allowed-domains\" content=\"" + System.getenv("SALESFORCE_HEROKUAPP_URL") + "\">\n" +
+			"<meta name=\"salesforce-allowed-domains\" content=\"" + System.getenv("SALESFORCE_HEROKUAPP_URL_DOMAINONLY") + "\">\n" +
 			"<script src=\""+ communityUrl +"/servlet/servlet.loginwidgetcontroller?type=javascript_widget\"" +
 			" async defer></script>\n" +
 			"</head><body></body></html>";
