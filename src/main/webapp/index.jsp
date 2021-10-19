@@ -11,7 +11,7 @@
 	
     <meta name="salesforce-community" content="https://<%= System.getenv("SALESFORCE_COMMUNITY_URL") %>">
     <meta name="salesforce-client-id" content="<%= System.getenv("SALESFORCE_CLIENT_ID") %>">
-    <meta name="salesforce-redirect-uri" content="https://<%= System.getenv("SALESFORCE_HEROKUAPP_URL") %>/_callback">
+    <meta name="salesforce-redirect-uri" content="<%= System.getenv("SALESFORCE_HEROKUAPP_URL") %>">
     <meta name="salesforce-mode" content="<%= System.getenv("SALESFORCE_MODE") %>">
     <meta name="salesforce-server-callback" content="true">
     <meta name="salesforce-namespace" content="">
