@@ -63,11 +63,11 @@
 	
 </body>
 
-<style type="text/css">
+<!--<style type="text/css">
 	#sfid-username {
 	display: none;	
 	}
-</style>
+</style>-->
 
 	
 	<script>
