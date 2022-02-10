@@ -33,27 +33,7 @@
 	  
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
 	
-	  <div id="cancel-logout" onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();">logout</div>
-	  <br/><br/>
-<form method="POST" action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp">
-<input type="hidden" name="sid"
-      value="<%= System.getenv("TOKEN") %>" />
-<input type="hidden" name="retURL" 
-      value="<%= System.getenv("RETURL") %>" /> 
-<input type="submit" name="login" value="Go to UM" /></form>
-<br/>
-<input type="submit" value="Go to UM" onclick=>
-	<form action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp" method="POST" target="my_iframe">
-		<input type="hidden" name="sid"
-      value="<%= System.getenv("TOKEN") %>" />
-		<input type="hidden" name="retURL" 
-      value="<%= System.getenv("RETURL") %>" /> 
-		<input type="submit" value="Do Stuff!">
-	</form>
 
-
-	<!-- when the form is submitted, the server response will appear in this iframe -->
-	<iframe name="my_iframe" style="width:100%;height:800px;" src=""></iframe>
 	
 	
 </body>
@@ -72,11 +52,8 @@
 	 	img.src = identity.photos.thumbnail; 
 		img.className = "sfid-avatar";	
 		var username = document.createElement('span'); 
-		if (identity.username.includes("@sip.com.salesdev9")) {
-			username.innerHTML = identity.username.substr(0, identity.username.indexOf('@')); 
-		} else {
-			username.innerHTML = identity.username;
-		}
+		username.innerHTML = identity.username;
+		
 		username.className = "sfid-avatar-name";	
 		var iddiv = document.createElement('div'); 
 	 	iddiv.id = "sfid-identity";		
