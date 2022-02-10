@@ -54,7 +54,6 @@ public class ServerSideCallbacks extends HttpServlet{
         if (startURL != null) {
             startURL = URLDecoder.decode(startURL, "UTF-8");
         }
-	    System.out.println("rwern startUrl: " + startURL);	
                 
         String tokenResponse = null;
         String communityUrl = null;
@@ -73,7 +72,7 @@ public class ServerSideCallbacks extends HttpServlet{
 		    post.addParameter("client_secret",CLIENT_SECRET);
 
 		    // Callback URL of the Connected App.
-		    post.addParameter("redirect_uri", "" +  System.getenv("SALESFORCE_HEROKUAPP_URL") + "");
+		    post.addParameter("redirect_uri", "https://" +  System.getenv("SALESFORCE_HEROKUAPP_URL") + "/_callback");
 
 				System.out.println("Attempting to POST to token endpoint: " + post.getPath());	
 		    httpclient.executeMethod(post);
