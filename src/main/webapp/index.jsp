@@ -31,11 +31,8 @@
   <body>
 	  
 	  
-	  <br/>
   	<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
-	<br/>
-
-	  <br/><br/>
+	
 	  <div id="cancel-logout" onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();">logout</div>
 	  <br/><br/>
 <form method="POST" action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp">
@@ -61,40 +58,10 @@
 	
 </body>
 
-<!--<style type="text/css">
-	#sfid-username {
-	display: none;	
-	}
-</style>-->
 
 	
 	<script>
-		/*var i = 0;
-	setInterval(function(){ 
-		if (i === 0) {
-		document.getElementById("sfid-username").value = "myvalue";
 		
-		
-		i++;
-		}
-	}, 5000);*/
-		var origun;
-		/*function changeusername() {
-			origun = document.getElementById("sfid-username").value;
-			document.getElementById("sfid-username").value = origun + '@sip.com.salesdev9';
-		}
-		function changeusername2() {
-			document.getElementById("sfid-username").value = origun;
-		}*/
-		function changeusername() {
-			origun = document.getElementById("sfid-username2").value;
-			if (origun.includes("@")) {
-				document.getElementById("sfid-username").value = origun;
-			} else {
-				document.getElementById("sfid-username").value = origun + '@sip.com.salesdev9';
-			}
-			
-		}
 
 	function onLogin(identity) {
 		
