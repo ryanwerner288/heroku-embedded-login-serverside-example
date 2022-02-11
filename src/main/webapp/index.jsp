@@ -31,7 +31,7 @@
 		<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
 		<br/><br/>
 
-		<form method="POST" action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp">
+		<form method="POST" action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp" target="_blank">
 			<input type="hidden" name="sid"
 			value="<%= System.getenv("TOKEN") %>" />
 			<input type="hidden" name="retURL" 
