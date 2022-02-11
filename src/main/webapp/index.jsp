@@ -28,7 +28,7 @@
   
   <body>
 	<center>
-		<div id="sign-in-link" style="position: absolute; top: 20px;right: 20px;"></div>
+		<div id="sign-in-link" ></div>
 		<br/><br/>
 
 		<form method="POST" action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp">
@@ -36,7 +36,7 @@
 			value="<%= System.getenv("TOKEN") %>" />
 			<input type="hidden" name="retURL" 
 			value="<%= System.getenv("RETURL") %>" /> 
-			<input type="submit" name="login" value="Go to UM" /></form>
+			<input type="submit" name="login" value="Jetstream User Management" /></form>
 		<br/>
 
 		</form>
