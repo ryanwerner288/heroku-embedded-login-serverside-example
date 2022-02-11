@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FIX, curated coffee components</title>
+    <title>U4B Embedded Login POC</title>
 
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600" type="text/css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
@@ -27,23 +27,22 @@
   </head>
   
   <body>
-  	<div id="sign-in-link" style="position: absolute; top: 20px;right: 20px;"></div>
-   <br/><br/>
-	  <div id="cancel-logout" onclick="javascript:SFIDWidget.logout();SFIDWidget.cancel();">logout</div>
-	  <br/><br/>
-<form method="POST" action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp">
-<input type="hidden" name="sid"
-      value="<%= System.getenv("TOKEN") %>" />
-<input type="hidden" name="retURL" 
-      value="<%= System.getenv("RETURL") %>" /> 
-<input type="submit" name="login" value="Go to UM" /></form>
-<br/>
+	<center>
+		<div id="sign-in-link" style="position: absolute; top: 20px;right: 20px;"></div>
+		<br/><br/>
 
-	</form>
+		<form method="POST" action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp">
+			<input type="hidden" name="sid"
+			value="<%= System.getenv("TOKEN") %>" />
+			<input type="hidden" name="retURL" 
+			value="<%= System.getenv("RETURL") %>" /> 
+			<input type="submit" name="login" value="Go to UM" /></form>
+		<br/>
+
+		</form>
 
 
-	<!-- when the form is submitted, the server response will appear in this iframe -->
-	<iframe name="my_iframe" style="width:100%;height:800px;" src=""></iframe>
+	</center>
 	
 	<script>
 	function onLogin(identity) {
