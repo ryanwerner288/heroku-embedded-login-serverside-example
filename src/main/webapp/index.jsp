@@ -28,7 +28,7 @@
   
   <body>
 	<center>
-		<div id="sign-in-link" ></div>
+		<div id="sign-in-link" style="position: absolute; top: 40px;right: 40px;"></div>
 		<br/><br/>
 
 		<form method="POST" action="https://salesdev9-salesportal.cs27.force.com/secur/frontdoor.jsp">
